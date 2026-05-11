@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="mainLogin">
+     <form action="" onsubmit="submitloginData(event)" id="loginForm">
+           
+        <div class="mainogin">
+            <h2>Login</h2>
+        </div>
+           <div class="labelinput">
+            <label for="email" class="labelbox">Email:</label>
+            <input type="email" class="inputbox"  placeholder="Enter email" id="email">
+            </div>
+
+            <div class="labelinput">
+            <label for="password" class="labelbox">Password:</label>
+            <input type="password" class="inputbox"   placeholder="Enter password" id="password">
+            </div>
+            <div class="labelinput">
+            <label for="confirmpassword" class="labelbox">Confirm Password:</label>
+            <input type="password" class="inputbox" placeholder="Enter password" id="confirmpassword">
+            </div>
+
+            <div class="btndiv">
+            <button type="submit" class="btn">Submit</button>
+            </div>
+            
+        </form>
+        </div>
+        </div>  
+
+        
+
+
+
+        <script>
+             
+            let email = document.getElementById("email")
+            let password = document.getElementById("password")
+            let confirmpassword = document.getElementById("confirmpassword");
+            let loginForm = document.getElementById("loginForm")
+
+            
+            function submitloginData(e){
+                e.preventDefault();
+
+                if(!email.value || !password.value ||! confirmpassword.value){
+                    alert("fill all the field")
+                    return
+                }else if(password.value !== confirmpassword.value){
+                    alert("password mismatch")  
+                    return
+                }
+                
+                else{
+                     let loginObj = {
+                    email: email.value,
+                    password: password.value,
+                    confirmpassword: confirmpassword.value
+                    }
+                    console.log(loginObj);
+
+                    let loginObjData = localStorage.setItem("submitloginData", JSON.stringify(loginObj))
+                    console.log(localStorage.getItem("submitloginData"));
+
+                    alert("login Successfully")
+
+                    window.location.href = "index.html";
+
+                }
+                
+            }
+
+            
+        </script>
+</body>
+</html>
