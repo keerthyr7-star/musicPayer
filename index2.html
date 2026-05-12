@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    
+    <title>mymusic app</title>
+</head>
+<body>
+    
+    
+    <div class="mainCard">
+
+         <audio id="audioPlayer"></audio>
+
+        <div class="mainCardImg">
+            <img src="https://static.vecteezy.com/system/resources/previews/001/263/630/non_2x/clef-music-symbol-vector.jpg" alt="">
+        </div>
+
+        <div class="mainCardText">
+            <h6 class="head">Song name</h6>
+            <p class="parent">Artist name</p>
+        </div>
+
+        <div class="timebar">
+
+        <span class="timebarSpan"></span>
+       
+        <input type="range" class="progressBar">
+        <span class="timebarSpan"></span>
+
+        </div>
+        <div class="controlsButtons">
+            <button id="previous"><i class="fa-solid fa-backward"></i></button>
+            <button id="play"><i class="fa-solid fa-play"></i></button>
+            <button id="next"><i class="fa-solid fa-forward"></i></button>
+        </div>
+    </div>
+
+    <div class="songsContainer">
+
+    </div>
+   
+<script src="index.js"></script>
+</body>
+</html>
+

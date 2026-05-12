@@ -3,47 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-    
-    <title>mymusic app</title>
+    <link rel="stylesheet" href="register.css">
+    <title>Document</title>
 </head>
 <body>
-    
-    
-    <div class="mainCard">
 
-         <audio id="audioPlayer"></audio>
+        <div class="authContainer">
 
-        <div class="mainCardImg">
-            <img src="https://static.vecteezy.com/system/resources/previews/001/263/630/non_2x/clef-music-symbol-vector.jpg" alt="">
-        </div>
+    <div class="designPanel">
+        <div class="content">
 
-        <div class="mainCardText">
-            <h6 class="head">Song name</h6>
-            <p class="parent">Artist name</p>
-        </div>
+            <h1>Welcome Back</h1>
 
-        <div class="timebar">
+            <p>
+                Already have an account?
+                Login to continue and explore more
+            </p>
 
-        <span class="timebarSpan"></span>
-       
-        <input type="range" class="progressBar">
-        <span class="timebarSpan"></span>
+            <button onclick="window.location.href='login.html'">
+                Login
+            </button>
 
-        </div>
-        <div class="controlsButtons">
-            <button id="previous"><i class="fa-solid fa-backward"></i></button>
-            <button id="play"><i class="fa-solid fa-play"></i></button>
-            <button id="next"><i class="fa-solid fa-forward"></i></button>
         </div>
     </div>
 
-    <div class="songsContainer">
+
+    <div class="mainForm">
+
+        <div class="registertag">
+            <h2>Create Account</h2>
+        </div>
+
+        <form action="" onsubmit="submitData(event)" id="formlayout">
+
+            <div class="labelinput">
+                <label for="username" class="labelbox">Username:</label>
+                <input type="text" class="inputbox" placeholder="Enter your name here" id="username">
+            </div>
+
+            <div class="labelinput">
+                <label for="email" class="labelbox">Email:</label>
+                <input type="email" class="inputbox" placeholder="Enter email" id="email">
+            </div>
+
+            <div class="labelinput">
+                <label for="password" class="labelbox">Password:</label>
+                <input type="password" class="inputbox" placeholder="Enter password" id="password">
+            </div>
+
+            <input type="checkbox" id="terms">
+            <label for="terms">I accept the terms and conditions</label>
+
+            <div class="btndiv">
+                <button class="btn">Submit</button>
+            </div>
+
+        </form>
 
     </div>
-   
-<script src="index.js"></script>
+
+</div>
+
+        <script>
+            let username = document.getElementById("username")
+            let email = document.getElementById("email")
+            let password = document.getElementById("password")
+            let passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*?&]{6,15}$/
+           
+
+            function submitData(e){
+                alert("started") 
+                e.preventDefault(); 
+                console.log(e);
+
+
+            if(!username.value || !email.value || !password.value){
+                alert("fills all the field")
+                return
+            
+            }
+
+             else if(!email.value.includes("@") || !email.value.includes(".") ){
+                alert("Enter valid email")
+                return
+            }
+
+            else if(password.value.length < 6 || password.value.length > 15){
+                alert("Password must be 6 to 15 letters")
+                return
+            }
+
+            else if(!passwordPattern.test(password.value)){
+                alert("add specia characters or letters or numbers")
+                return
+            }
+           
+            else{
+                 let formObject = {
+                username: username.value,
+                email: email.value,
+                password: password.value
+
+            }
+            console.log(formObject);
+                
+            let formObjectdata = localStorage.setItem("formData", JSON.stringify(formObject))
+
+            console.log(localStorage.getItem("formData"));
+
+            alert("data saved")
+            }
+            window.location.href = "login.html"
+            
+            }
+
+           
+        </script>
 </body>
 </html>
-
